@@ -1,5 +1,7 @@
 # claude-plugins
 
+> 🇪🇸 [Léelo en castellano](README.es.md)
+
 Single marketplace catalog for all of David García Gordo's Claude Code plugins. Each plugin still lives and updates in its own repo — this just gives you one place to browse and install from.
 
 ## Install
@@ -29,6 +31,10 @@ Then install whatever you need:
 | `automations` | `optimize-my-setup` — tailors a repo's `.claude` config | [claude-code-setup-optimizer](https://github.com/davidgarciagordo/claude-code-setup-optimizer) |
 
 Each plugin is also independently installable from its own repo's marketplace — this catalog just aggregates them.
+
+## Extra: statusline with badges
+
+[`statusline_prompt.md`](statusline_prompt.md) — copy-paste prompt (Spanish) that has Claude Code set up a statusline showing dir · git branch · model/style · context % · 5h/7d limits, plus `[CAVEMAN]` / `[TOKEN-ECON]` badges if you use those plugins.
 
 ## License
 
