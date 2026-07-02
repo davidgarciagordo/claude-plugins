@@ -24,11 +24,11 @@ Then install whatever you need:
 
 | Plugin | What it does | Source repo |
 |---|---|---|
-| `token-economy` | Cuts input/orchestration tokens for multi-agent work | [token-economy](https://github.com/davidgarciagordo/token-economy) |
-| `design-review` | Design/redesign audit pipeline (reference research → lenses → vitality verdict) | [design-review](https://github.com/davidgarciagordo/design-review) |
-| `forge-methodology` | Human↔AI spec → grill → plan → execute → verify methodology | [forge-methodology](https://github.com/davidgarciagordo/forge-methodology) |
-| `working-methods` | `/grill`, `/handoff`, `forge-on-claude` | [claude-code-setup-optimizer](https://github.com/davidgarciagordo/claude-code-setup-optimizer) |
-| `automations` | `optimize-my-setup` — tailors a repo's `.claude` config | [claude-code-setup-optimizer](https://github.com/davidgarciagordo/claude-code-setup-optimizer) |
+| `token-economy` | Cuts input/orchestration tokens for multi-agent work: "discover-once" context-pack (a single scan, file:line map), terse read-only agents, `frugal` output-style, and cross-run memory. Stacks with caveman. | [token-economy](https://github.com/davidgarciagordo/token-economy) |
+| `design-review` | Design/redesign audit pipeline: reference research → 4 design lenses actually applied → live vitality verdict (alive/templated/flat) with a loop until it clears the bar. | [design-review](https://github.com/davidgarciagordo/design-review) |
+| `forge-methodology` | Human↔AI methodology for serious work: align intent → versioned spec → adversarial grill ×3 → global plan → execution → verify against the Definition of Done → owner sign-off. | [forge-methodology](https://github.com/davidgarciagordo/forge-methodology) |
+| `working-methods` | Cross-project working norms: `/grill` (adversarial ×3 attack on a spec/plan), `/handoff` (session relay), and `forge-on-claude` (the Forge encoded with non-skippable gates). | [claude-code-setup-optimizer](https://github.com/davidgarciagordo/claude-code-setup-optimizer) |
+| `automations` | `optimize-my-setup` skill: audits and tailors a repo's `.claude` config (CLAUDE.md, settings, hooks, agents, output-styles) and proposes improvements — you pick what gets applied. | [claude-code-setup-optimizer](https://github.com/davidgarciagordo/claude-code-setup-optimizer) |
 
 Each plugin is also independently installable from its own repo's marketplace — this catalog just aggregates them.
 
