@@ -10,31 +10,31 @@
     {
       "name": "token-economy",
       "displayName": "Token Economy",
-      "description": "Cuts input/orchestration tokens for multi-agent work: context-pack, read-only lens agent, frugal output-style, pluggable memory.",
+      "description": "Deterministic, tested context-pack script + a read-only lens agent scoped by tool list + a frugal output-style: measured 2.6×–7× fewer input tokens on multi-agent work at identical coverage. Composes with the caveman skill and uses claude-mem as its preferred memory backend.",
       "source": { "source": "github", "repo": "davidgarciagordo/token-economy" }
     },
     {
       "name": "design-review",
       "displayName": "Design Review",
-      "description": "Design/redesign audit pipeline: reference research → 4 lenses → live vitality verdict (alive/templated/flat).",
+      "description": "8-agent design pipeline with binary gates and a machine-checkable alive/templated/flat verdict backed by an enforcement hook. Ships 7 verified, commit-pinned playbooks that prevent the known failure modes of the third-party design skills it orchestrates.",
       "source": { "source": "github", "repo": "davidgarciagordo/design-review" }
     },
     {
       "name": "forge-methodology",
       "displayName": "Forja / Forge",
-      "description": "Human↔AI methodology: align intent → versioned spec → adversarial grill ×3 → global plan → execution → verify vs DoD → sign-off.",
+      "description": "9-step human↔AI methodology where completeness is mechanical: an enumerated reference with req-ids feeds an Acceptance Matrix, and a hook blocks `gh pr create` until every row carries evidence verified by someone other than the executor. 8 domain packs, 8 end-to-end examples.",
       "source": { "source": "github", "repo": "davidgarciagordo/forge-methodology" }
     },
     {
       "name": "working-methods",
       "displayName": "Working Methods",
-      "description": "Cross-project working norms: /grill (adversarial ×3), /handoff (session relay), forge-on-claude.",
+      "description": "The Forge enforcement layer for Claude Code: /forge-run sequences 12 phases through machine-checked gates (forge.js, a zero-dependency state machine) with a fail-closed PR-gate hook. Also /grill (3-4 read-only adversarial lenses with a binary finding criterion) and /handoff (session relay on a durable scheduler).",
       "source": { "source": "git-subdir", "url": "https://github.com/davidgarciagordo/claude-code-setup-optimizer.git", "path": "plugins/working-methods" }
     },
     {
       "name": "automations",
       "displayName": "Setup Automations",
-      "description": "optimize-my-setup skill: tailors a repo's .claude config (CLAUDE.md, settings, hooks, agents, output-styles). You pick what to apply.",
+      "description": "/optimize-my-setup: deterministic scan (scan.mjs) of all 8 .claude config surfaces + read-only agent fan-out + a mandatory multi-check — nothing is applied unless you tick it. Ships 4 fail-closed template hooks (guard-main, secrets-guard, commit-lint, ui-diff), 5 adversarial reviewers generated per-repo, and /release.",
       "source": { "source": "git-subdir", "url": "https://github.com/davidgarciagordo/claude-code-setup-optimizer.git", "path": "plugins/automations" }
     }
   ]
