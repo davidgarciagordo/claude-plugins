@@ -2,9 +2,13 @@
 
 > 🇬🇧 [Read this in English](README.md)
 
-Catálogo único (marketplace) de todos los plugins de Claude Code de David García Gordo. Cada plugin vive y se actualiza en su propio repo — esto solo te da un único sitio desde el que explorar e instalar.
+Catálogo único (marketplace) de todos los plugins de Claude Code de David García Gordo. Cada plugin vive y se actualiza en su propio repo — este catálogo te da un único sitio desde el que explorar e instalar.
+
+El hilo conductor: cada plugin convierte "el modelo promete" en "un mecanismo lo impone". Scripts deterministas en vez de fe, gates machine-checked en vez de verde auto-declarado, números medidos en vez de claims.
 
 ## Instalación
+
+Añade el marketplace una vez:
 
 ```bash
 /plugin marketplace add davidgarciagordo/claude-plugins
@@ -22,15 +26,25 @@ Después instala lo que necesites:
 
 ## Plugins
 
-| Plugin | Para qué sirve | Repo fuente |
-|---|---|---|
-| `token-economy` | Recorta tokens de entrada/orquestación en trabajo multi-agente: context-pack "discover-once" (un escaneo, mapa file:línea), agentes read-only tersos, output-style `frugal` y memoria entre runs. Apila con caveman. | [token-economy](https://github.com/davidgarciagordo/token-economy) |
-| `design-review` | Pipeline de auditoría de diseño/rediseño: investigación de referencias → 4 lentes de diseño aplicadas de verdad → veredicto de vitalidad en vivo (alive/templated/flat) con loop hasta pasar el listón. | [design-review](https://github.com/davidgarciagordo/design-review) |
-| `forge-methodology` | Metodología humano↔IA para trabajo serio: alinear intención → spec versionado → grill adversarial ×3 → plan global → ejecución → verificación contra la Definition of Done → sign-off del owner. | [forge-methodology](https://github.com/davidgarciagordo/forge-methodology) |
-| `working-methods` | Normas de trabajo transversales a proyectos: `/grill` (ataque adversarial ×3 a un spec/plan), `/handoff` (relevo entre sesiones) y `forge-on-claude` (la Forja codificada con gates no saltables). | [claude-code-setup-optimizer](https://github.com/davidgarciagordo/claude-code-setup-optimizer) |
-| `automations` | Skill `optimize-my-setup`: audita y adapta la config `.claude` de un repo (CLAUDE.md, settings, hooks, agentes, output-styles) proponiendo mejoras — tú eliges qué se aplica. | [claude-code-setup-optimizer](https://github.com/davidgarciagordo/claude-code-setup-optimizer) |
+| Plugin | Qué resuelve | Componente estrella | Fuente |
+|---|---|---|---|
+| `token-economy` | Las sesiones multi-agente queman tokens de entrada redescubriendo el mismo contexto. Medido: 2,6×–7× menos tokens de entrada con cobertura idéntica. | Script de context-pack determinista y testeado ("discover once") + agente-lente read-only acotado por lista de tools + output-style `frugal`. | [token-economy](https://github.com/davidgarciagordo/token-economy) |
+| `design-review` | Los skills de diseño de terceros producen output templated y se saltan sus propios pasos de setup. Este pipeline los hace correr de verdad — y lo demuestra. | Pipeline de 8 agentes con gates binarios, veredicto machine-checkable `alive/templated/flat` impuesto por hook, y 7 playbooks verificados y pineados a commit. | [design-review](https://github.com/davidgarciagordo/design-review) |
+| `forge-methodology` | "Hecho" declarado contra la idea de done del ejecutor, no contra el objetivo. Aquí la completitud es mecánica, no una sensación. | Referencia enumerada con req-ids → Acceptance Matrix → hook que bloquea `gh pr create` mientras falte evidencia verificada por alguien ≠ ejecutor. 8 domain packs, 8 ejemplos end-to-end. | [forge-methodology](https://github.com/davidgarciagordo/forge-methodology) |
+| `working-methods` | Una metodología que el modelo puede saltarse es una sugerencia. Esta es la capa de ENFORCEMENT de la Forja dentro de Claude Code. | `/forge-run`: 12 fases secuenciadas por `forge.js` (máquina de estados sin dependencias, gates machine-checked) + hook PR-gate fail-closed. Además `/grill` (3-4 lentes adversariales read-only, criterio binario de hallazgo) y `/handoff` (relevo de sesión con scheduler durable). | [claude-code-setup-optimizer](https://github.com/davidgarciagordo/claude-code-setup-optimizer/tree/main/plugins/working-methods) |
+| `automations` | La config `.claude` de un repo suele ser ad-hoc y estar desactualizada. Esto la arranca de forma determinista — y nunca aplica nada que no hayas marcado. | `/optimize-my-setup`: scan determinista (`scan.mjs`) de las 8 superficies `.claude` + fan-out de agentes read-only + multi-check obligatorio. Incluye 4 hooks template fail-closed (guard-main, secrets-guard, commit-lint, ui-diff), 5 reviewers adversariales generados a medida por repo, y `/release`. | [claude-code-setup-optimizer](https://github.com/davidgarciagordo/claude-code-setup-optimizer/tree/main/plugins/automations) |
 
-Cada plugin también es instalable de forma independiente desde el marketplace de su propio repo — este catálogo solo los agrega.
+## Cómo componen entre sí
+
+Los cinco plugins forman una familia, cada uno con su capa:
+
+- **`forge-methodology`** — la metodología: spec → grill adversarial → plan → done verificado.
+- **`working-methods`** — el enforcement de esa metodología en Claude Code: `/forge-run` gatea cada fase mecánicamente para que no se pueda saltar pasos.
+- **`token-economy`** — la capa de coste: cualquier fase multi-agente (lentes de grill, reviewers, lentes de diseño) corre 2,6×–7× más barata con la misma cobertura.
+- **`design-review`** — el pipeline de diseño: una review especializada y gateada para trabajo de UI, enchufable como fase de diseño de un run de Forja.
+- **`automations`** — el bootstrap: monta la config `.claude` del repo (hooks, reviewers, settings) sobre la que corre todo lo anterior.
+
+**Cada plugin funciona standalone.** La composición es opcional — instala uno y tienes su valor completo; instala varios y encajan entre sí.
 
 ## Extra: statusline con badges
 
