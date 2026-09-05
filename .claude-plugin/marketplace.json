@@ -40,7 +40,7 @@
     {
       "name": "swarm",
       "displayName": "Swarm",
-      "description": "36-agent development swarm for Claude Code: one objective in, a full senior-team cycle out — unified memory scanned once, discovery in one batch, 7 read-only audit lenses, a written spec attacked by an adversarial grill ×3, TDD in an isolated worktree, severity-tagged review, and an independent verifier that never built what it checks. Push and PR only by explicit invocation.",
+      "description": "39-agent development swarm for Claude Code: one objective in, a full senior-team cycle out — unified memory scanned once, discovery in one batch, 7 read-only audit lenses, a written spec attacked by an adversarial grill ×3, TDD in an isolated worktree, severity-tagged review, and an independent verifier that never built what it checks. Push and PR only by explicit invocation.",
       "source": { "source": "github", "repo": "davidgarciagordo/swarm" }
     }
   ]
