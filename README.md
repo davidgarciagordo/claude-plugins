@@ -22,6 +22,7 @@ Then install whatever you need:
 /plugin install forge-methodology@davidgarciagordo-plugins
 /plugin install working-methods@davidgarciagordo-plugins
 /plugin install automations@davidgarciagordo-plugins
+/plugin install swarm@davidgarciagordo-plugins
 ```
 
 ## Plugins
@@ -33,16 +34,19 @@ Then install whatever you need:
 | `forge-methodology` | "Done" declared against the executor's own idea of done, not against the goal. Here completeness is mechanical, not felt. | Enumerated reference with req-ids → Acceptance Matrix → hook that blocks `gh pr create` until every row has evidence verified by someone ≠ executor. 8 domain packs, 8 end-to-end examples. | [forge-methodology](https://github.com/davidgarciagordo/forge-methodology) |
 | `working-methods` | A methodology the model can skip is a suggestion. This is the Forge ENFORCEMENT layer inside Claude Code. | `/forge-run`: 12 phases sequenced by `forge.js` (zero-dependency state machine, machine-checked gates) + fail-closed PR-gate hook. Plus `/grill` (3-4 read-only adversarial lenses, binary finding criterion) and `/handoff` (session relay on a durable scheduler). | [claude-code-setup-optimizer](https://github.com/davidgarciagordo/claude-code-setup-optimizer/tree/main/plugins/working-methods) |
 | `automations` | Repo `.claude` config is usually ad-hoc and stale. This bootstraps it deterministically — and never applies anything you didn't tick. | `/optimize-my-setup`: deterministic scan (`scan.mjs`) of all 8 `.claude` surfaces + read-only agent fan-out + mandatory multi-check. Ships 4 fail-closed template hooks (guard-main, secrets-guard, commit-lint, ui-diff), 5 adversarial reviewers generated per-repo, and `/release`. | [claude-code-setup-optimizer](https://github.com/davidgarciagordo/claude-code-setup-optimizer/tree/main/plugins/automations) |
+| `swarm` | A development objective has to pass through discovery, analysis, design, implementation and delivery, and each phase needs a different agent — without you orchestrating the handoff between them. | 36 single-responsibility agents, unified memory (one repo scan, shared), adversarial grill ×3 on the plan, TDD in an isolated worktree, and an independent verifier that never built what it checks. | [swarm](https://github.com/davidgarciagordo/swarm) |
 
 ## How they compose
 
-The five plugins form one family, each owning a distinct layer:
+Five of the six plugins form one family, each owning a distinct layer:
 
 - **`forge-methodology`** — the methodology: spec → adversarial grill → plan → verified done.
 - **`working-methods`** — the enforcement of that methodology in Claude Code: `/forge-run` gates each phase mechanically so steps can't be skipped.
 - **`token-economy`** — the cost layer: any multi-agent phase (grill lenses, reviewers, design lenses) runs 2.6×–7× cheaper with the same coverage.
 - **`design-review`** — the design pipeline: a specialized, gated review for UI work, pluggable as the design phase of a Forge run.
 - **`automations`** — the bootstrap: sets up the repo's `.claude` config (hooks, reviewers, settings) that everything above runs on.
+
+**`swarm` isn't another layer — it's the sixth plugin, and it chains several of the ones above into one cycle:** one objective goes in, and discovery, analysis, design (with its own grill ×3), TDD implementation and delivery come out chained, with memory shared across phases instead of each agent rediscovering the repo. It solves the same problem as `working-methods`/`forge-methodology` (the methodology shouldn't depend on the agent remembering it) but for the whole development cycle, not just a PR's gate.
 
 **Every plugin works standalone.** Composition is optional — install one, get its full value; install several, they snap together.
 
