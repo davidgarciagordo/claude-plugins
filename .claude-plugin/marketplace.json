@@ -36,6 +36,12 @@
       "displayName": "Setup Automations",
       "description": "/optimize-my-setup: deterministic scan (scan.mjs) of all 8 .claude config surfaces + read-only agent fan-out + a mandatory multi-check — nothing is applied unless you tick it. Ships 4 fail-closed template hooks (guard-main, secrets-guard, commit-lint, ui-diff), 5 adversarial reviewers generated per-repo, and /release.",
       "source": { "source": "git-subdir", "url": "https://github.com/davidgarciagordo/claude-code-setup-optimizer.git", "path": "plugins/automations" }
+    },
+    {
+      "name": "swarm",
+      "displayName": "Swarm",
+      "description": "36-agent development swarm for Claude Code: one objective in, a full senior-team cycle out — unified memory scanned once, discovery in one batch, 7 read-only audit lenses, a written spec attacked by an adversarial grill ×3, TDD in an isolated worktree, severity-tagged review, and an independent verifier that never built what it checks. Push and PR only by explicit invocation.",
+      "source": { "source": "github", "repo": "davidgarciagordo/swarm" }
     }
   ]
 }
