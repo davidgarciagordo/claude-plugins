@@ -10,7 +10,7 @@
     {
       "name": "token-economy",
       "displayName": "Token Economy",
-      "description": "Deterministic, tested context-pack script + a read-only lens agent scoped by tool list + a frugal output-style: measured 2.6×–7× fewer input tokens on multi-agent work at identical coverage. Composes with the caveman skill and uses claude-mem as its preferred memory backend.",
+      "description": "Deterministic, tested context-pack script + a read-only lens agent scoped by tool list + a frugal output-style. Measured on a real 4-lens design-review pass: ~2.6× fewer tokens per lens, ~7× on a second pass over the same target (reused artifacts). Composes with the caveman skill and uses claude-mem as its preferred memory backend.",
       "source": { "source": "github", "repo": "davidgarciagordo/token-economy" }
     },
     {
