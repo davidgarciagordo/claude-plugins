@@ -1,4 +1,4 @@
-# claude-plugins
+# 🔌 claude-plugins
 
 > 🇬🇧 [Read this in English](README.md)
 
@@ -6,7 +6,7 @@ Catálogo único (marketplace) de todos los plugins de Claude Code de David Garc
 
 El hilo conductor: cada plugin convierte "el modelo promete" en "un mecanismo lo impone". Scripts deterministas en vez de fe, gates machine-checked en vez de verde auto-declarado, números medidos en vez de claims.
 
-## Instalación
+## 📦 Instalación
 
 Añade el marketplace una vez:
 
@@ -25,7 +25,7 @@ Después instala lo que necesites:
 /plugin install swarm@davidgarciagordo-plugins
 ```
 
-## Plugins
+## 🧩 Plugins
 
 | Plugin | Qué resuelve | Componente estrella | Fuente |
 |---|---|---|---|
@@ -36,7 +36,7 @@ Después instala lo que necesites:
 | `automations` | La config `.claude` de un repo suele ser ad-hoc y estar desactualizada. Esto la arranca de forma determinista — y nunca aplica nada que no hayas marcado. | `/optimize-my-setup`: scan determinista (`scan.mjs`) de las 8 superficies `.claude` + fan-out de agentes read-only + multi-check obligatorio. Incluye 4 hooks template fail-closed (guard-main, secrets-guard, commit-lint, ui-diff), 5 reviewers adversariales generados a medida por repo, y `/release`. | [claude-code-setup-optimizer](https://github.com/davidgarciagordo/claude-code-setup-optimizer/tree/main/plugins/automations) |
 | `swarm` | Un objetivo de desarrollo pasa por descubrimiento, análisis, diseño, implementación y entrega, y cada fase la hace un agente distinto — sin que tú tengas que orquestar el traspaso entre ellos. | 39 agentes de responsabilidad única, memoria unificada (un escaneo del repo, compartido), grill ×3 adversarial sobre el plan, TDD en worktree aislado y un verificador independiente que nunca construyó lo que revisa. | [swarm](https://github.com/davidgarciagordo/swarm) |
 
-## Cómo componen entre sí
+## 🔗 Cómo componen entre sí
 
 Cinco de los seis plugins forman una familia, cada uno con su capa:
 
@@ -50,10 +50,10 @@ Cinco de los seis plugins forman una familia, cada uno con su capa:
 
 **Cada plugin funciona standalone.** La composición es opcional — instala uno y tienes su valor completo; instala varios y encajan entre sí.
 
-## Extra: statusline con badges
+## ✨ Extra: statusline con badges
 
 [`statusline_prompt.md`](statusline_prompt.md) — prompt copy-paste para que Claude Code te monte una statusline con dir · rama git · modelo/estilo · % contexto · límites 5h/7d, y badges `[CAVEMAN]` / `[TOKEN-ECON]` si usas esos plugins.
 
-## Licencia
+## ⚖️ Licencia
 
 MIT © David García Gordo

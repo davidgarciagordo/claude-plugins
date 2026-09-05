@@ -1,4 +1,4 @@
-# claude-plugins
+# 🔌 claude-plugins
 
 > 🇪🇸 [Léelo en castellano](README.es.md)
 
@@ -6,7 +6,7 @@ Single marketplace catalog for all of David García Gordo's Claude Code plugins.
 
 The common thread: every plugin turns "the model promises" into "a mechanism enforces". Deterministic scripts instead of vibes, machine-checked gates instead of self-declared green, measured numbers instead of claims.
 
-## Install
+## 📦 Install
 
 Add the marketplace once:
 
@@ -25,7 +25,7 @@ Then install whatever you need:
 /plugin install swarm@davidgarciagordo-plugins
 ```
 
-## Plugins
+## 🧩 Plugins
 
 | Plugin | What it solves | Star component | Source |
 |---|---|---|---|
@@ -36,7 +36,7 @@ Then install whatever you need:
 | `automations` | Repo `.claude` config is usually ad-hoc and stale. This bootstraps it deterministically — and never applies anything you didn't tick. | `/optimize-my-setup`: deterministic scan (`scan.mjs`) of all 8 `.claude` surfaces + read-only agent fan-out + mandatory multi-check. Ships 4 fail-closed template hooks (guard-main, secrets-guard, commit-lint, ui-diff), 5 adversarial reviewers generated per-repo, and `/release`. | [claude-code-setup-optimizer](https://github.com/davidgarciagordo/claude-code-setup-optimizer/tree/main/plugins/automations) |
 | `swarm` | A development objective has to pass through discovery, analysis, design, implementation and delivery, and each phase needs a different agent — without you orchestrating the handoff between them. | 39 single-responsibility agents, unified memory (one repo scan, shared), adversarial grill ×3 on the plan, TDD in an isolated worktree, and an independent verifier that never built what it checks. | [swarm](https://github.com/davidgarciagordo/swarm) |
 
-## How they compose
+## 🔗 How they compose
 
 Five of the six plugins form one family, each owning a distinct layer:
 
@@ -50,10 +50,10 @@ Five of the six plugins form one family, each owning a distinct layer:
 
 **Every plugin works standalone.** Composition is optional — install one, get its full value; install several, they snap together.
 
-## Extra: statusline with badges
+## ✨ Extra: statusline with badges
 
 [`statusline_prompt.md`](statusline_prompt.md) — copy-paste prompt (Spanish) that has Claude Code set up a statusline showing dir · git branch · model/style · context % · 5h/7d limits, plus `[CAVEMAN]` / `[TOKEN-ECON]` badges if you use those plugins.
 
-## License
+## ⚖️ License
 
 MIT © David García Gordo
